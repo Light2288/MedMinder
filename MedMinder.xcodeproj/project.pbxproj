@@ -13,6 +13,8 @@
 		6B8C717C28611C0500951DD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8C717B28611C0500951DD6 /* Preview Assets.xcassets */; };
 		6B8C717E28611C0500951DD6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C717D28611C0500951DD6 /* Persistence.swift */; };
 		6B8C718128611C0500951DD6 /* MedMinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6B8C717F28611C0500951DD6 /* MedMinder.xcdatamodeld */; };
+		6BEAE6282869102600DCD679 /* AddMedicineReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAE6272869102600DCD679 /* AddMedicineReminderView.swift */; };
+		6BEAE62A2869119500DCD679 /* EmptyMedicineReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAE6292869119500DCD679 /* EmptyMedicineReminderListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		6B8C717B28611C0500951DD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6B8C717D28611C0500951DD6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		6B8C718028611C0500951DD6 /* MedMinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MedMinder.xcdatamodel; sourceTree = "<group>"; };
+		6BEAE6272869102600DCD679 /* AddMedicineReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicineReminderView.swift; sourceTree = "<group>"; };
+		6BEAE6292869119500DCD679 /* EmptyMedicineReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMedicineReminderListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				6B8C717428611C0100951DD6 /* MedMinderApp.swift */,
-				6B8C717628611C0100951DD6 /* ContentView.swift */,
+				6BEAE62628690D3100DCD679 /* Views */,
 				6B8C717828611C0500951DD6 /* Assets.xcassets */,
 				6B8C717D28611C0500951DD6 /* Persistence.swift */,
 				6B8C717F28611C0500951DD6 /* MedMinder.xcdatamodeld */,
@@ -71,6 +75,16 @@
 				6B8C717B28611C0500951DD6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6BEAE62628690D3100DCD679 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B8C717628611C0100951DD6 /* ContentView.swift */,
+				6BEAE6272869102600DCD679 /* AddMedicineReminderView.swift */,
+				6BEAE6292869119500DCD679 /* EmptyMedicineReminderListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BEAE6282869102600DCD679 /* AddMedicineReminderView.swift in Sources */,
 				6B8C717E28611C0500951DD6 /* Persistence.swift in Sources */,
 				6B8C717728611C0100951DD6 /* ContentView.swift in Sources */,
 				6B8C717528611C0100951DD6 /* MedMinderApp.swift in Sources */,
+				6BEAE62A2869119500DCD679 /* EmptyMedicineReminderListView.swift in Sources */,
 				6B8C718128611C0500951DD6 /* MedMinder.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
