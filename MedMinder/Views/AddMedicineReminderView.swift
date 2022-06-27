@@ -24,8 +24,12 @@ struct AddMedicineReminderView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Form {
+                VStack(alignment: .leading, spacing: 20) {
                     TextField("Medicine Name", text: $medicineName)
+                        .padding()
+                        .background(Color(.tertiarySystemFill))
+                        .cornerRadius(9)
+                        .font(.system(size: 24, weight: .bold, design: .default))
                     Picker("Medicine Frequency", selection: $medicineFrequency) {
                         ForEach(frequencies, id: \.self) {
                             Text($0)
@@ -52,9 +56,16 @@ struct AddMedicineReminderView: View {
                         }
                     } label: {
                         Text("Save")
+                            .font(.system(size: 24, weight: .bold, design: .default))
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(.blue)
+                            .cornerRadius(9)
+                            .foregroundColor(.white)
                     }
-
-                } //: Form
+                } //: VStack
+                .padding(.horizontal)
+                .padding(.vertical, 30)
                 Spacer()
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {

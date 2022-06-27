@@ -11,6 +11,8 @@ import CoreData
 struct ContentView: View {
     // MARK: - Properties
     @State private var showingAddMedicineReminderView: Bool = false
+    @State private var animatingAddButton: Bool = false
+
     
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -45,9 +47,6 @@ struct ContentView: View {
                         Button(action: addMedicineReminder) {
                             Label("Add Medicine Reminder", systemImage: "plus")
                         }
-                        .sheet(isPresented: $showingAddMedicineReminderView) {
-                            AddMedicineReminderView().environment(\.managedObjectContext, self.viewContext)
-                        }
                     }
                 }
                 .navigationTitle("MedMinder")
@@ -55,7 +54,44 @@ struct ContentView: View {
                 if medicineReminders.count == 0 {
                     EmptyMedicineReminderListView()
                 }
+            } //: ZStack
+            .sheet(isPresented: $showingAddMedicineReminderView) {
+                AddMedicineReminderView().environment(\.managedObjectContext, self.viewContext)
             }
+            .overlay(
+                ZStack {
+                    Group {
+                        Circle()
+                            .fill(.blue)
+                            .opacity(self.animatingAddButton ? 0.2 : 0)
+                            .scaleEffect(self.animatingAddButton ? 1 : 0)
+                            .frame(width: 68, height: 68, alignment: .center)
+                        Circle()
+                            .fill(.blue)
+                            .opacity(self.animatingAddButton ? 0.15 : 0)
+                            .scaleEffect(self.animatingAddButton ? 1 : 0)
+                            .frame(width: 88, height: 88, alignment: .center)
+                    }
+                    .animation(.easeOut(duration: 2).repeatForever(autoreverses: true), value: self.animatingAddButton)
+                    Button(action: {
+                        self.showingAddMedicineReminderView.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .background(Circle().fill(Color(uiColor: .white)))
+                            .frame(width: 48, height: 48, alignment: .center)
+                    }) //: Button
+                    .onAppear {
+                        DispatchQueue.main.async {
+                            self.animatingAddButton.toggle()
+                        }
+                    }
+                } //: ZStack
+                    .padding(.bottom, 15)
+                    .padding(.trailing, 15)
+                , alignment: .bottomTrailing
+            )
         }
     }
     
